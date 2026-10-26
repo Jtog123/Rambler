@@ -45,5 +45,8 @@ Rambler is a web application that allows users input (speak) to their computer o
     2. from the laptop open an SSH tunnel : ssh -N -L 8000:localhost:8000 user@your-remote-ip, it will look like it hanging
     3. open a new terminal and test: curl http://localhost:8000/v1/models
     4. response should look something like: {"object":"list","data":[{"id":"Qwen/Qwen2.5-14B-Instruct-AWQ","object":"model","created":1792688980,"owned_by":"vllm","root":"Qwen/Qwen2.5-14B-Instruct-AWQ","parent":null,"max_model_len":8192,"permission":[{"id":"modelperm-82a27e7747a1a2b2","object":"model_permission","created":1792688980,"allow_create_engine":false,"allow_sampling":true,"allow_logprobs":true,"allow_search_indices":false,"allow_view":true,"allow_fine_tuning":false,"organization":"*","group":null,"is_blocking":false}]}]}% 
-    5. 
+
+- Testing with an audio file use curl.
+     curl -X POST "http://127.0.0.1:9000/transcribe" \
+     -F "file=@tests/testrecord1.m4a"
 
